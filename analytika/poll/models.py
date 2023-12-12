@@ -1,3 +1,21 @@
 from django.db import models
 
-# Create your models here.
+from django.urls import reverse
+
+
+class Poll(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
+    active = models.BooleanField(default=True)
+    opened_from = models.DateTimeField()
+    opened_to = models.DateTimeField()
+
+    class Meta:
+        ordering = ("-opened_from",)
+        indexes = [models.Index(fields=["name"])]
+
+    def __str__(self) -> str:
+        return self.name
+
+    def get_absolute_url(self) -> str:
+        return reverse("poll:poll_detail", kwargs=dict(poll_slug=self.slug))
