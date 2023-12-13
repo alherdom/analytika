@@ -18,4 +18,4 @@ class Poll(models.Model):
         return self.name
 
     def get_absolute_url(self) -> str:
-        return reverse("poll:poll_detail", kwargs=dict(poll_slug=self.slug))
+        return reverse("poll:poll_vote", kwargs=dict(poll_slug=self.slug))

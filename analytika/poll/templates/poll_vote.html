@@ -4,10 +4,12 @@
 {% block content %}
 <h1>{{ poll.name }}</h1>
 {% for choice in choices %}
-<p>
-    <input type="radio" name="choice" style="height: 20px; width:20px;">
-    <label for="choice">{{ choice.name }}</label><br>
-</p>
-{% endfor %}
-<button type="submit" class="myButton">Vote</button>
+<form action="">
+    <p>
+        <input type="radio" name="choice" value="{{ choice.id }}" style="height: 20px; width:20px;">
+        <label for="choice">{{ choice.name }}</label><br>
+    </p>
+    {% endfor %}
+    <button type="submit" class="myButton">Vote</button>
+</form>
 {% endblock %}</p>
