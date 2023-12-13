@@ -4,9 +4,9 @@
 {% block content %}
 <h1>{{ poll.name }}</h1>
 {% for choice in choices %}
-<form action="">
+<form action="{% url 'vote:votes' %}">
     <p>
-        <input type="radio" name="choice" value="{{ choice.id }}" style="height: 20px; width:20px;">
+        <input type="radio" name="choice_id" value="{{ choice.id }}" style="height: 20px; width:20px;">
         <label for="choice">{{ choice.name }}</label><br>
     </p>
     {% endfor %}

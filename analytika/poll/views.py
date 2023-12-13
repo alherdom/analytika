@@ -15,5 +15,5 @@ def poll_vote(request: HttpRequest, poll_slug: str) -> HttpResponse:
     return render(
         request,
         "poll_vote.html",
-        dict(poll=poll, choices=choices, section="poll-detail"),
+        dict(poll=poll, choices=choices, section="poll-vote"),
     )
