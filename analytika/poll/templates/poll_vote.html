@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Poll Vote{% endblock %}
+{% block content %}
+<h1>{{ poll.name }}</h1>
+{% for choice in choices %}
+<p>
+    <input type="radio" name="choice" style="height: 20px; width:20px;">
+    <label for="choice">{{ choice.name }}</label><br>
+</p>
+{% endfor %}
+<button type="submit" class="myButton">Vote</button>
+{% endblock %}</p>

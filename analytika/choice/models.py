@@ -7,4 +7,4 @@ class Choice(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
-        return f"{self.poll} {self.choice_text} {self.votes}"
+        return f"{self.poll} {self.name}"

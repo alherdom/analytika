@@ -4,8 +4,8 @@ from django.urls import reverse
 
 
 class Poll(models.Model):
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     active = models.BooleanField(default=True)
     opened_from = models.DateTimeField()
     opened_to = models.DateTimeField()
