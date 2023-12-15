@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}
+Poll Results
+{% endblock %}
+{% block content %}
+    <h1>{{ poll.name }}</h1>
+    {% for choice in choices %}
+        {% with choice.votes.count as total_votes %}
+            <p>{{ choice.name }} - {{ total_votes }} vote{{ total_votes|pluralize }} ({{ choice.get_percentage }}%)</p>
+        {% endwith %}
+    {% endfor %}
+    <p>Total votes: {{ poll.votes.count }}</p>
+{% endblock  %}

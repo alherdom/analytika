@@ -3,13 +3,17 @@
 {% block title %}Poll Vote{% endblock %}
 {% block content %}
 <h1>{{ poll.name }}</h1>
-{% for choice in choices %}
-<form action="{% url 'vote:votes' %}">
+<form action="{% url 'vote:votes' %}" method="post">
+    {% csrf_token %}
+    {% for choice in choices %}
     <p>
         <input type="radio" name="choice_id" value="{{ choice.id }}" style="height: 20px; width:20px;">
-        <label for="choice">{{ choice.name }}</label><br>
+        <label for="choice">{{ choice.name }}
+            
+        </label><br>
     </p>
     {% endfor %}
     <button type="submit" class="myButton">Vote</button>
+    <input type="button" class="myButton"><a href="{% url 'poll:poll_results' poll.slug %}">Results</a>
 </form>
-{% endblock %}</p>
+{% endblock %}

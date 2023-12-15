@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "poll.apps.PollConfig",
     "choice.apps.ChoiceConfig",
     "vote.apps.VoteConfig",
+    "common.apps.CommonConfig",
 ]
 
 MIDDLEWARE = [

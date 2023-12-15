@@ -9,11 +9,12 @@ def polls(request: HttpRequest) -> HttpResponse:
     return render(request, "polls.html", dict(polls=polls))
 
 
-def poll_vote(request: HttpRequest, poll_slug: str) -> HttpResponse:
+def poll_choices(request: HttpRequest, poll_slug: str) -> HttpResponse:
     poll = Poll.objects.get(slug=poll_slug)
     choices = Choice.objects.filter(poll=poll)
-    return render(
-        request,
-        "poll_vote.html",
-        dict(poll=poll, choices=choices, section="poll-vote"),
-    )
+    return render(request,"poll_choices.html",dict(poll=poll, choices=choices, section="poll-vote"))
+
+def poll_results(request: HttpRequest, poll_slug: str) -> HttpResponse:
+    poll = Poll.objects.get(slug=poll_slug)
+    choices = Choice.objects.filter(poll=poll)
+    return render(request,"poll_results.html", dict(poll=poll, choices=choices, section="poll-results"))
