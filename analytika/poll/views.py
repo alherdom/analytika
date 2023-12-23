@@ -8,7 +8,6 @@ def polls(request: HttpRequest) -> HttpResponse:
     polls = Poll.objects.filter(active=True)
     return render(request, "polls.html", dict(polls=polls))
 
-
 def poll_choices(request: HttpRequest, poll_slug: str) -> HttpResponse:
     poll = Poll.objects.get(slug=poll_slug)
     choices = Choice.objects.filter(poll=poll)
